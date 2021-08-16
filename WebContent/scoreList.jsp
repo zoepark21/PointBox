@@ -23,6 +23,9 @@
 	<td><%=List.get(i).getScore() %></td>
 	</tr>
 	<%} %>
+
+<button>+</button>
+<button>-</button>
 </table>
 </body>
 </html>
