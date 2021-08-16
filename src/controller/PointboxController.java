@@ -1,6 +1,9 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +16,7 @@ import service.PointboxService;
 /**
  * Servlet implementation class PointboxController
  */
-@WebServlet("/AddStu")
+@WebServlet({"/AddStu","/getAllInfo"})
 public class PointboxController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -50,6 +53,15 @@ public class PointboxController extends HttpServlet {
 			
 			response.sendRedirect("Main.jsp");
 		    break;
+		case"/getAllInfo":
+			System.out.println("/getAllInfo");
+			
+			ArrayList<PointboxDTO> allListDto = pService.getAllInfo();
+			request.setAttribute("List", allListDto);
+			RequestDispatcher dispatcher;
+			dispatcher = request.getRequestDispatcher("scoreList.jsp");
+			dispatcher.forward(request, response);
+			break;
 		}
 
 	}

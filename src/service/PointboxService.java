@@ -2,6 +2,7 @@ package service;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import dao.PointboxDAO;
 import dto.PointboxDTO;
@@ -29,6 +30,16 @@ public class PointboxService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+
+	public ArrayList<PointboxDTO> getAllInfo() {
+		 PointboxDAO pDao = PointboxDAO.getInstance();
+		 Connection con = getConnection();
+		 pDao.setConnection(con);
+		 
+		 ArrayList<PointboxDTO> getAllInfo = pDao.getAllInfo();
+		 
+		return getAllInfo;
 	}
 
 }

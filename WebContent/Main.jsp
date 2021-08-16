@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<button onclick="location.href='addInfor.jsp'">학생추가</button>
+<button onclick="location.href='addInfo.jsp'">adding a student</button>
+<button onclick="location.href='getAllInfo'">Score List</button>
 </body>
 </html>
